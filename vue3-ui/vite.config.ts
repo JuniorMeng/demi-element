@@ -1,0 +1,21 @@
+import * as path from 'path'
+import { defineConfig } from 'vite'
+import vue3 from '@vitejs/plugin-vue'
+import { baseBuildConfig } from '../vite.base.config'
+
+export const viteVue3Config = defineConfig({
+  plugins: [vue3()],
+  server: {
+    port: 3000,
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../src'),
+      'vue': path.resolve(__dirname, './node_modules/vue/dist/vue.runtime.esm-browser.js'),
+      'vue-demi': '../../node_modules/vue-demi/lib/v3/index.mjs',
+    },
+  },
+  ...baseBuildConfig,
+})
+
+export default viteVue3Config
