@@ -7,8 +7,8 @@ function loadModule(name) {
   try {
     return require(name)
   }
-  catch (e) {
-    return undefined
+  catch (error) {
+    console.log(error)
   }
 }
 
@@ -16,15 +16,18 @@ function copy(name, version, vue) {
   vue = vue || 'vue'
   const src = path.join(dir, `v${version}`, name)
   const dest = path.join(dir, name)
-  let content = fs.readFileSync(src, 'utf-8')
-  content = content.replace(/'vue'/g, `'${vue}'`)
-  // unlink for pnpm, #92
   try {
+    let content = fs.readFileSync(src, 'utf-8')
+    content = content.replace(/'vue'/g, `'${vue}'`)
     fs.unlinkSync(dest)
+    fs.writeFileSync(dest, content, 'utf-8')
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      console.error('File does not exists');
+    } else {
+      throw err;
+    }
   }
-  catch (error) {
-  }
-  fs.writeFileSync(dest, content, 'utf-8')
 }
 
 function switchVersion(version, vue) {
