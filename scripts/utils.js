@@ -1,5 +1,10 @@
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const dir = path.resolve(__dirname, '..', 'dist')
 
@@ -19,7 +24,12 @@ function copy(name, version, vue) {
   try {
     let content = fs.readFileSync(src, 'utf-8')
     content = content.replace(/'vue'/g, `'${vue}'`)
-    fs.unlinkSync(dest)
+    try {
+      fs.unlinkSync(dest)
+    }
+    catch (error) {
+      console.error(error);
+    }
     fs.writeFileSync(dest, content, 'utf-8')
   } catch (error) {
     if (error.code === 'ENOENT') {
@@ -37,5 +47,7 @@ function switchVersion(version, vue) {
   copy('style.css', version, vue)
 }
 
-module.exports.loadModule = loadModule
-module.exports.switchVersion = switchVersion
+export{
+  loadModule,
+  switchVersion
+}

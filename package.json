@@ -1,8 +1,8 @@
 {
   "name": "demi-element",
   "private": true,
-  "version": "0.0.0",
-  "type": "commonjs",
+  "version": "1.0.0",
+  "type": "module",
   "exports": {
     ".": {
       "require": "./dist/index.cjs.js",
@@ -23,14 +23,14 @@
     "types"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "npm run clean && run-s build:*",
+    "start": "npm run dev:2",
     "dev:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-ui dev",
     "dev:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-ui dev",
+    "build": "npm run clean && run-s build:*",
     "build:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-ui build",
     "build:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-ui build",
-    "postinstall": "node scripts/postinstall.js",
-    "preview": "vite preview"
+    "clean": "rimraf ./dist",
+    "postinstall": "node scripts/postinstall.js"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.4.9",
@@ -50,6 +50,7 @@
   "devDependencies": {
     "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^5.0.4",
+    "npm-run-all": "^4.1.5",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vue-tsc": "^2.0.6"

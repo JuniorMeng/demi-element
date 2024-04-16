@@ -1,10 +1,30 @@
-import HelloWorld from './components-v3/HelloWorld.vue'
+import Button from './components-v3/Button/index.ts'
+const components = [
+  Button
+]
 
-const TemplateComponent = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  install(app: any) {
-    app.component('TemplateComponent', HelloWorld)
-  },
+// if(isVue2){
+
+// }
+
+// const TemplateComponent = {
+//   install(app: any) {
+//     app.component('TemplateComponent', HelloWorld)
+//   },
+// }
+
+const install = function (Vue:any) {
+  components.forEach(component => {
+    Vue.component(component.name, component);
+  })
 }
 
-export default TemplateComponent
+export default {
+  Button,
+  install
+}
+
+export {
+  Button,
+  install
+}

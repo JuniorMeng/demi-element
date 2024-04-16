@@ -1,4 +1,4 @@
-const { switchVersion, loadModule } = require('./utils')
+import { switchVersion, loadModule } from './utils.js'
 
 const Vue = loadModule('vue')
 
