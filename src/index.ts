@@ -1,30 +1,5 @@
-import Button from './components-v3/Button/index.ts'
-const components = [
-  Button
-]
+// import componentsV2 from "../components-v2/index.ts";
+import componentsV3 from "./components-v3/index.ts";
 
-// if(isVue2){
 
-// }
-
-// const TemplateComponent = {
-//   install(app: any) {
-//     app.component('TemplateComponent', HelloWorld)
-//   },
-// }
-
-const install = function (Vue:any) {
-  components.forEach(component => {
-    Vue.component(component.name, component);
-  })
-}
-
-export default {
-  Button,
-  install
-}
-
-export {
-  Button,
-  install
-}
+export default componentsV3

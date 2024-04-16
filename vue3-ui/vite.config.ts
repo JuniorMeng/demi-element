@@ -12,7 +12,7 @@ export const viteVue3Config = defineConfig({
     alias: {
       '@': path.resolve(__dirname, '../src'),
       'vue': path.resolve(__dirname, './node_modules/vue/dist/vue.runtime.esm-browser.js'),
-      'vue-demi': '../../node_modules/vue-demi/lib/v3/index.mjs',
+      'vue-demi': path.resolve('../node_modules/vue-demi/lib/v3/index.mjs')
     },
   },
   ...baseBuildConfig,
