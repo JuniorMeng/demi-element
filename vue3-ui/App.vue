@@ -1,6 +1,6 @@
 <template>
   <div class="div">
-    <Button msg="test"/>
+    <giga-input clearable type="password" />
   </div>
 </template>
 

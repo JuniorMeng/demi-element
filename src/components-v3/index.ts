@@ -1,6 +1,8 @@
 import Button from './Button/index.ts'
+import GigaInput from './GigaInput/index.ts'
 const componentsV3 = [
-  Button
+  Button,
+  GigaInput
 ]
 
 const install = function (Vue:any) {
@@ -11,10 +13,12 @@ const install = function (Vue:any) {
 
 export default {
   Button,
+  GigaInput,
   install
 }
 
 export {
   Button,
+  GigaInput,
   install
 }
