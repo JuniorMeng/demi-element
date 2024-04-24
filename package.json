@@ -1,7 +1,7 @@
 {
-  "name": "demi-element",
-  "private": true,
-  "version": "1.0.0",
+  "name": "demi-element-test",
+  "private": false,
+  "version": "1.0.2",
   "type": "module",
   "exports": {
     ".": {
@@ -28,7 +28,7 @@
     "dev:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-ui dev",
     "build": "npm run clean && run-s build:*",
     "build:2": "vue-demi-switch 2 vue2 && pnpm --filter vue2-ui build",
-    "build:3": "vue-demi-switch 3 vue3 && pnpm --filter vue3-ui build",
+    "build:3": "node ./vue3-ui/build/prod-vue3-config.js",
     "clean": "rimraf ./dist",
     "postinstall": "node scripts/postinstall.js"
   },

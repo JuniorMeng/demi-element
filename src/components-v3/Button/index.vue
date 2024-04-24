@@ -16,3 +16,10 @@ const increment = () => {
   count.value ++
 }
 </script>
+
+
+<style scoped>
+  .test{
+    background-color: red;
+  }
+</style>

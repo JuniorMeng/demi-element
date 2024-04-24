@@ -7,7 +7,7 @@ const componentsV3 = [
 
 const install = function (Vue:any) {
   componentsV3.forEach(component => {
-    Vue.component(component.name, component);
+    Vue.component(component.name, component)
   })
 }
 

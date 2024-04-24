@@ -1,12 +1,14 @@
 {
   "name": "vue3-ui",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build"
   },
   "dependencies": {
     "element-plus": "^2.7.1",
+    "fs-extra": "^11.2.0",
     "vue": "^3.0.0"
   },
   "devDependencies": {

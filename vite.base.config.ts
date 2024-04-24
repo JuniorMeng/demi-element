@@ -3,17 +3,13 @@ import { defineConfig } from 'vite'
 import { isVue2 } from 'vue-demi'
 
 const outputName = 'index'
-// export const defaultPlugins = [
-//   UnoCSS(),
-// ]
 
-// https://vitejs.dev/config/
 export const baseBuildConfig = defineConfig({
   build: {
     outDir: path.resolve(__dirname, `./dist/${isVue2 ? 'v2' : 'v3'}`),
     emptyOutDir: false,
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: path.resolve(__dirname, `src/${isVue2 ? 'components-v2/' : 'components-v3/'}index.ts`),
       formats: ['es', 'cjs', 'umd'],
       name: 'index',
       fileName: format => `${outputName}.${format}.js`,
@@ -30,7 +26,6 @@ export const baseBuildConfig = defineConfig({
       },
     },
   },
-
   optimizeDeps: {
     exclude: ['vue-demi', 'vue', 'vue2'],
   },
